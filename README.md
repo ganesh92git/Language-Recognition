@@ -21,7 +21,7 @@ $ python lang_recognition.py
 
 and all their dependencies
 
-**Note:- **This program is created with python 2.7.14 and it is tested and proved to be working for conda distribution for python 2.7.
+**Note:-** This program is created in python 2.7.14 and it is tested and proved to be working for conda distribution for python 2.7.
 
 ------------
 
