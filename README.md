@@ -58,5 +58,5 @@ option.
 ------------
 
 ## How we did it:-
-We used CNN for this purpose. 2000+ samples of digits written in three languages (English,Hindi and Odia) are used for training and around 400 samples are used for testing. Accuracy comes out to be above 90%. The model comprises of two 2D convolution layers.  Each followed by maxpooling and dropout.
+We used CNN for this purpose. 2000+ samples of digits written in three languages (English,Hindi and Odia) were used for training and around 400 samples were used for testing. Accuracy comes out to be above 90%. The model comprises of two 2D convolution layers.  Each followed by maxpooling and dropout.
 Lots of preprocessing were required for images before they can be used for training. Those are explained in the code itself.
