@@ -1,6 +1,5 @@
 # Language Recognition
-This project aims to recognize handwritten scripts and to which language they belong. Currently three languages are supported i.e English(International), Hindi(National), Odia(Regional) and character set of script is limited to digits only.
-
+This project aims to recognize handwritten scripts and to which language they belong. Currently three languages are supported i.e English(International), Hindi(National), Odia(Regional) and character set of script is limited to digits only. <br>
 This project was developed for an Machine Learning intership by JH Nirmal Sir(HOD of ETRX, KJSCE) in second year of Engineering.
 To use the program just run the 'lang_recognition.py'
 ```bash
