@@ -64,4 +64,14 @@ Lots of preprocessing were required for images before they can be used for train
 ------------
 
 ## Demo:-
-To watch full video on youtube click [here](https://www.youtube.com/watch?v=rtKz6uJDLzs)
+To watch full video on youtube click [here](https://www.youtube.com/watch?v=rtKz6uJDLzs) 
+
+
+<p align="center">
+  <img alt="screenshot" src="https://github.com/92ganesh/Language-Recognition/blob/master/screenshot1.JPG">
+</p>
+<p align="center">
+  <img alt="screenshot" src="https://github.com/92ganesh/Language-Recognition/blob/master/screenshot2.JPG">
+</p>
+
+
