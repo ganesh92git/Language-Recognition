@@ -63,8 +63,8 @@ Lots of preprocessing were required for images before they can be used for train
 
 ------------
 
-## Demo:-
-To watch full video on youtube click [here](https://www.youtube.com/watch?v=rtKz6uJDLzs) 
+# Demo:-
+## To watch full video on youtube click [here](https://www.youtube.com/watch?v=rtKz6uJDLzs)  <br>
 
 
 <p align="center">
