@@ -1,13 +1,18 @@
-#from __future__ import print_function
+''' credits:-
+preprocessing - https://medium.com/@o.kroeger/tensorflow-mnist-and-your-own-handwritten-digits-4d1cd32bbab4
+model and data augmentation -  keras doc and sentdex
+'''
+
+from __future__ import print_function
 import keras
 from keras.layers import Dense, Flatten, Dropout
 from keras.layers import Conv2D, MaxPooling2D
 from keras.models import Sequential
 from scipy import ndimage
 from sklearn.utils import shuffle
-from PIL import ImageTk, Image, ImageDraw
 import PIL
-import Tkinter as tk
+from PIL import ImageTk, Image, ImageDraw
+import tkinter as tk
 import math  
 import cv2
 import numpy as np
@@ -75,7 +80,6 @@ def preprocessing(gray):
 # List of folders where the images of the digits are located
 input_folder_list = ["eng","hindi","odia"]
 
-'''
 batch_size = 128
 num_classes =30
 epochs = 20
@@ -125,7 +129,7 @@ print(x_train.shape[0], 'train samples')
 # categorical_crossentropy loss below
 y_train = keras.utils.to_categorical(y_train, num_classes)
 
-
+'''
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(5,5), strides=(1, 1),
                  activation='relu',
@@ -155,8 +159,8 @@ with open("model.json","w") as json_file:
 # serialize weights to HDF5
 model.save_weights("model.h5")
 print("Saved model to disk")
-
 '''
+
 # load json and create model
 json_file = open('model.json', 'r')
 loaded_model_json = json_file.read()
@@ -190,6 +194,7 @@ def paint_window():
         images_for_prediction = []
         images = os.listdir("./Predict")
         for image in images:
+            
             gray = cv2.imread("./Predict/" + image, cv2.IMREAD_GRAYSCALE)
             # same preprocessing as above
             images_for_prediction.append(np.asarray(gray))
@@ -204,7 +209,7 @@ def paint_window():
         n = len(predicted)
         
         for i in range(0,n,1):
-            lan_index =  predicted[i]/10
+            lan_index =  predicted[i]//10
             no = predicted[i]%10
             cv2.imwrite(".//Predicted//"+str(i)+str(input_folder_list[lan_index])+" "+str(no)+".jpg",images_for_prediction[i])
             
@@ -273,7 +278,6 @@ def page_scan():
     im=cv2.imread('photo.jpg')
     height, width, channels = im.shape
     if height>=1000 and width>=1000:      
-        print(str(height)+'\t'+str(width)+'\t'+str(channels)) 
         im = cv2.resize(im, (560, 780))
     gray= cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     cv2.normalize(gray,gray,0,255,cv2.NORM_MINMAX)
@@ -324,7 +328,7 @@ def predict_folder():
     count=[0,0,0] # at index  0->eng,1->hindi,2->odia
     n = len(predicted)
     for i in range(0,n,1):
-        lan_index =  predicted[i]/10
+        lan_index =  predicted[i]//10
         no = predicted[i]%10
         name = str(i+1)+")"+str(input_folder_list[lan_index])+" "+str(no)
         count[lan_index]=count[lan_index]+1
@@ -363,19 +367,20 @@ def predict_folder():
 
 
 # menu
+import sys
+print(sys.version)
+print ("-----------WELCOME-----------")
+print ("Press 1: to Draw and Predict")
+print ("Press 2: Predict Language and equivalent value in English of single digit images")
+print ("Press 3: Predict Language of the written digits (supports multiple digits in the same image)")
 
-print "-----------WELCOME-----------"
-print "Press 1: to Draw and Predict"
-print "Press 2: Predict Language and equivalent value in English of single digit images"
-print "Press 3: Predict Language of the written digits (supports multiple digits in the same image)"
-
-choice = input("Enter your choice: ")
+choice = int(input("Enter your choice: "))
 
 files = glob.glob('./Predicted/*')
 for f in files:
     os.remove(f)
 
-if   choice==1:
+if  choice==1:
     files = glob.glob('./Predict/*')
     for f in files:
         os.remove(f)
@@ -390,7 +395,6 @@ elif choice==3:
     for f in files:
         os.remove(f)
     page_scan()
-
     counta=predict_folder()
     
     if (counta[0]>=counta[1]) and (counta[0]>=counta[2]):
@@ -400,19 +404,8 @@ elif choice==3:
     elif (counta[2]>=counta[0]) and (counta[2]>=counta[1]):
         lang="Odia"    
         
-    print "Script seems to be in "+lang
+    print ("Script seems to be in "+lang)
     print("Thank You")
 else:
-    print "Ops!! wrong input"
+    print ("Ops!! wrong input")
     
-
-
-
-
-
-
-
-
-
-
-
